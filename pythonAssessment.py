@@ -85,6 +85,10 @@ def calculate_average_word_length(text):
     # count the number of words
     total_words = len(text_list)
 
+     # This prevents division by zero
+    if total_words == 0:
+        return 0
+
       # Combine all words into one single string with no spaces and find its length
     total_char = len("".join(text_list))
     
@@ -131,3 +135,12 @@ def count_sentences(text):
             count += 1
     
 
+if __name__ == "__main__":
+    with open("news_article.txt", "r") as f:
+        text = f.read()
+
+    print(count_specific_word(text, "economy"))
+    print(identify_most_common_word(text))
+    print(calculate_average_word_length(text))
+    print(count_paragraphs(text))
+    print(count_sentences(text))
