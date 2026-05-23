@@ -64,7 +64,7 @@ def identify_most_common_word(text):
 
 # 3. Calculate the average word length
 
-def calculate_average_word_length(text):
+def calculate_average_word_length(text): 
     """
     Return the average length of all words as a float.
     - Clean text
@@ -72,7 +72,26 @@ def calculate_average_word_length(text):
     - Add up total characters
     - Divide by number of words
     """
-    pass  # TODO: implement
+    # convert to lower case
+    text_lower = text.lower()
+    
+    # clean punctuation
+    for p in ".,!?;:\"'()":
+        text_lower = text_lower.replace(p, "")
+        
+    # split into a list
+    text_list = text_lower.split()
+
+    # count the number of words
+    total_words = len(text_list)
+
+      # Combine all words into one single string with no spaces and find its length
+    total_char = len("".join(text_list))
+    
+    # Divide the total characters by total words to calculate and return the average as a float
+    return total_char / total_words
+
+
 
 
 
@@ -85,7 +104,16 @@ def count_paragraphs(text):
     - Split text by '\n\n'
     - Count non-empty sections
     """
-    pass  # TODO: implement
+
+    paragraphs = text.split("\n\n")
+    count = 0
+
+    for p in paragraphs:
+        if p.strip() != "":
+            count += 1
+
+    return count
+
 
 
 
@@ -97,4 +125,9 @@ def count_sentences(text):
     - Sentences end with '.', '?', or '!'
     - Loop through characters and count sentence-ending punctuation
     """
-    pass  # TODO: implement
+    count = 0
+    for char in text:
+        if char in ".?!":
+            count += 1
+    
+
