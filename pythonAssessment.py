@@ -133,6 +133,9 @@ def count_sentences(text):
     for char in text:
         if char in ".?!":
             count += 1
+    # Forget to return        
+    return count
+
     
 
 if __name__ == "__main__":
